@@ -5,6 +5,7 @@
           <% %>  JSP脚本  /java代码/
           <%! int a;%> 声明变量
           <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+          <%@ page import="java.util.* " %>
           <%@ include file="相对路径" %>
 
 * JSP表象上是切入了java片段的html页面，本质上是servlet的java类。写好的jsp文件都是在服务器端执行完后将输入返回给客户端的。
@@ -57,9 +58,32 @@
    <br>原因:请求转发，整个过程在同一个请求里，重定向是两次请求，第一次请求完后，服务器给客户端返回定向的资源文件路径，客户端再请求定向资源文件。
    RequestDispatcher.forward方法是请求对象的方法，而sendRedirect方法是响应对象的方法。
 
-6. 投票管理系统
+6. 投票管理系统<br>
+   1.jsp(显示界面给用户填写问题内容，选择个数，问题类型) <br>
+   2.servlet处理用户提交，并根据问题的个数，显示选项内容框的jsp<br>
+   3.用户提交后处理用户提交数据到servlet中，servlet获取提交信息后交给xml工具类进行xml文件构建保存后，转向jsp显示结果。<br>
+   4.用户访问servlet后通过xml工具类获取xml数据后，转向jsp显示所有问题，用户填完问题后，提交给servlet处理，并更新xml
 
 7. JavaScropt获取元素对象的值的方式：<br>
 
    var username = document.getElementById("username")<br>
    var elements = document.getElementsByName("username")<br>
+
+8. Javabean
+
+
+* JavaBean特性<br>
+  1.JavaBean是一个public类<br>
+  2.JavaBean有一个不带参数的构造方法<br>
+  3.JavaBean通过set get方法设置获取属性<br>
+
+  主要目的是用反射去操作javabean
+
+* Jsp访问javabean语法<br>
+  1.导入javabean类<br>
+  2.声明javabean对象<br>
+  3.访问javabean属性
+
+  <%@ page import="com.zyh.yw.User" %> //导入javabean类<br>
+  <jsp:useBean id="mUser" class="com.zyh.yw.User" scope="session"/> //声明javabean对象<br>
+  <jsp:getProperty name="mUser" property="name"> //获取javaBean的name属性
