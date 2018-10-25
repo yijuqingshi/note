@@ -87,3 +87,12 @@
   <%@ page import="com.zyh.yw.User" %> //导入javabean类<br>
   <jsp:useBean id="mUser" class="com.zyh.yw.User" scope="session"/> //声明javabean对象<br>
   <jsp:getProperty name="mUser" property="name"> //获取javaBean的name属性
+
+* javaBean的生命周期范围<br>
+
+  1. socpe = page  //当前页面有效
+  2. socpe = request //当前请求
+  3. socpe = session //用法与session一样
+  4. socpe = application //application一样
+
+  实现原理是将javabean通过 setAttribute方法放置对应的对象中
