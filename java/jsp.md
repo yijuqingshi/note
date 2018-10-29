@@ -6,14 +6,9 @@
           <%= "yangwei" %>  等价 out.println("yangwei")
           <% %>  JSP脚本  /java代码/
           <%! int a;%> 声明变量
-<<<<<<< HEAD
-          <%@ page contentType="text/html;charset=UTF-8" language="java" %> //jsp指令
-          <%@ include file="相对路径" %>
-=======
           <%@ page contentType="text/html;charset=UTF-8" language="java" %>
           <%@ page import="java.util.* " %>
           <%@ include file="相对路径" %>  //jsp指令
->>>>>>> 64183d50717b330745b7adceac8f7867f41844ec
 
 * JSP表象上是切入了java片段的html页面，本质上是servlet的java类。写好的jsp文件都是在服务器端执行完后将输入返回给客户端的。
 
