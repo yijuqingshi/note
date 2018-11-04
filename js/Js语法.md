@@ -116,9 +116,10 @@ var elements = document.getElementsByName("username")<br>
 
   f.push(["dd",10])
   ```
+
 ## 对象定义
 
-  方式一
+ * 方式一
   ```
   function person(name,age) {
       this.name = name;
@@ -139,7 +140,7 @@ var elements = document.getElementsByName("username")<br>
   document.write(yw.name);
   document.write(yw.age);
 
-  ```
+    ```
 
 * 定时器
 
@@ -160,7 +161,7 @@ var elements = document.getElementsByName("username")<br>
   ```
 
 
-  * 绑定时间的两种方式
+  * 绑定事件的两种方式
 
   第一种方式
   ```
@@ -178,4 +179,57 @@ var elements = document.getElementsByName("username")<br>
   v.onClick = getCount; //注意此处不能写getCount();
 
   <input type=button value = "click" id = "button1">
+  ```
+
+
+## 内置对象
+
+ * 使用说明
+    ```
+    window.history.back(-1)
+
+    //跳转到此链接
+    window.location.href = "wwww.baidu.com"
+
+    document.links //获取页面所有链接对象，是数组
+
+    document.cookie = "name=yangwei;expires=Wdy,DD-Mon-YY HH:MM:SS GMT    
+    ```
+
+## 理解函数
+
+ * 在JavaScript中，函数function就是对象，没有方法重载的概念。
+
+  ```
+  function add(number){
+    alert(number + 10);
+  }
+  等价于 var add = function(number){
+    alert(number + 10);
+  }
+
+  function add(number, number1){
+    alert(number + number1);
+  }
+  等价于 var add = function(number,number1){
+    alert(number + number1);
+  }
+  ```
+
+* 在JavaScript中有一个Function对象，所有自定义的函数都是Function类型的对象。  Function对象接受的参数都是字符串类型的，最后一个参数是函数需要执行的方法体，其他的参数是函数接受的真正参数。例如：
+```
+ var add = new Function("number","number1","alert(number + number1)")
+ //调用
+ add(10,20);
+```  
+* 在JavaScript中,函数中隐含一个arguments数组对象，表示调用该函数传进来的实际的参数。例如：
+  ```
+  add(10,20,30);
+
+  则相当于
+  add(number,number1){
+    arguments[0] = 10;
+    arguments[1] = 20;
+    arguments[2] = 30; //与number,number1无关。
+  }
   ```

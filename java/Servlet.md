@@ -79,9 +79,9 @@ getInputStream()//获取请求输入流
 
 
  ## Cookie
-
+服务器端可以向客户端发送多个cookie，也可以获取客户端发送过来的cookie，默认会将Session对象的ID发送给客户端。
 ```
- Cookie  Cookie = new Cookie(key.value);
+ Cookie  Cookie = new Cookie(key，value);
 
  //获取Cookie  request.getCookies();
  //放松Cookie  response.addCookie();
