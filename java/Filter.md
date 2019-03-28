@@ -24,7 +24,7 @@ Servlet过滤器能够对Servlet容器的请求与响应对象进行修改,Servl
 * web.xml配置
 
   ```
-<filter>
+  <filter>
        <filter-name>myFilter</filter-name>
        <filter-class>com.zyh.learnweb.servlet.MyFilter</filter-class>
    </filter>
